@@ -12,8 +12,8 @@
 // <==============================================================>
 // <=== IMPORTS ===>
 var Client = require('instagram-private-api').V1;
-var device = new Client.Device('joshuablew');
-var storage = new Client.CookieFileStorage('../cookies/joshuablew.json');
+var device = new Client.Device('someuser');
+var storage = new Client.CookieFileStorage('../cookies/someuser.json');
 var lodash = require('lodash');
 var Promise = require('bluebird');
 var natural = require('natural');
