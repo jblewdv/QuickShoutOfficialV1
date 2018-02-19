@@ -2,13 +2,16 @@
   "name": "myapp",
   "version": "1.0.0",
   "description": "A software for Instagram influencers",
+  "engines": {
+    "node": "6.10.2"
+  },
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huttarichard/instagram-private-api.git"
+    "url": "https://github.com/jblewdv/QuickShoutOfficialV1.git"
   },
   "author": "Joshua Blew",
   "license": "ISC",
@@ -32,6 +35,7 @@
     "magnific-popup": "^1.1.0",
     "mongo": "*",
     "mongoose": "*",
+    "morgan: "*",
     "natural": "^0.5.6",
     "passport": "*",
     "passport-http": "*",
