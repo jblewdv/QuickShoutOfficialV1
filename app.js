@@ -32,7 +32,8 @@ var mongoose = require('mongoose');
 
 // <==============================================================>
 // <=== Database Connection ===>
-mongoose.connect('mongodb://localhost/tester');
+mongoose.connect('mongodb://WashingtonIrving:guccigang@ds041678.mlab.com:41678/heroku_c5drsnwg');
+//mongoose.connect('mongodb://localhost/tester');
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
