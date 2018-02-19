@@ -1,0 +1,71 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title QuickShout - Dashboard
+
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    link(rel='stylesheet', href='/css/dashboard.css')
+
+  body
+    nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0
+      a.navbar-brand.col-sm-3.col-md-2.mr-0(href='/') QuickShout
+      input.form-control.form-control-dark.w-100(type='text', placeholder='Search', aria-label='Search')
+      ul.navbar-nav.px-3
+        li.nav-item.text-nowrap
+          a.nav-link(href='/users/logout') Log Out
+    .container-fluid
+      .row
+        nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+          .sidebar-sticky
+            ul.nav.flex-column
+              li.nav-item
+                a.nav-link.active(href='/dashboard/home')
+                  span(data-feather='home')
+                  |                   Dashboard 
+                  span.sr-only (current)
+              li.nav-item
+                a.nav-link(href='/dashboard/leads')
+                  span(data-feather='users')
+                  |                   Leads
+              li.nav-item
+                a.nav-link(href='/dashboard/reports')
+                  span(data-feather='bar-chart-2')
+                  |                   Reports
+              li.nav-item
+                a.nav-link(href='/dashboard/accounts')
+                  span(data-feather='layers')
+                  |                   Connected Accounts
+              li.nav-item
+                a.nav-link(href='/dashboard/settings')
+                  span(data-feather='file')
+                  |                   Settings
+            h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+              span Important Pages
+            ul.nav.flex-column.mb-2
+              li.nav-item
+                a.nav-link(href='/dashboard/our_software')
+                  span(data-feather='bar-chart-2')
+                  |                   Our Software
+              li.nav-item
+                a.nav-link(href='/dashboard/how_to_use')
+                  span(data-feather='layers')
+                  |                   How To Use
+              li.nav-item
+                a.nav-link(href='/dashboard/contact')
+                  span(data-feather='file')
+                  |                   Contact
+
+
+
+    
+    block content
+
+  // Icons
+  script(src='https://unpkg.com/feather-icons/dist/feather.min.js')
+  script.
+    feather.replace()
+

@@ -1,0 +1,65 @@
+extends layout
+
+block content
+
+  link(href='/bootstrap/bootstrap.min.css', rel='stylesheet')
+  link(href='/css/login-signup.css', rel='stylesheet')
+
+  
+
+  #myRegisterCard.card
+    .card-body
+      form.form-signup(method='POST', action='/users/register')
+        h1.h3.mb-3.font-weight-normal Sign up for a new account
+        hr
+
+        .row
+          .col
+            label(for='personalInfo') Basic Account Information
+            .form-group
+              input#InputUsername.form-control(type='username', required="true", name='username', placeholder='Username')
+            .form-group
+              input#InputEmail.form-control(type='email', required="true", name='email', placeholder='Enter email')
+              small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+            .form-group
+              input#InputPassword.form-control(type='password', required="true", name='password', placeholder='Password')
+            .form-group
+              input#InputConfirmPassword.form-control(type='password', required="true", name='password2', placeholder='Confirm Password')
+          
+          .col
+            label(for='instagramInfo') Instagram Account Login
+            .input-group.mb-3
+              .input-group-prepend
+                span.input-group-text @
+              input.form-control(name='ig_username', required="true", type='text', placeholder='Username', aria-describedby='basic-addon1')
+            .input-group.mb-3
+              input.form-control(name='ig_password', required="true", type='text', placeholder='Password', aria-describedby='basic-addon1')
+              small#instagramHelp.form-text.text-muted Keeping your private instagram account information safe is our top priority.
+ 
+            label(for='instagramCostInfo') Shoutout Rates
+            .input-group.mb-3
+              .input-group-prepend
+                span.input-group-text $
+              input.form-control(name='story_price', required="true", type='number', aria-label='Amount (to the nearest dollar)', placeholder='Story Post (24hrs)')
+            .input-group.mb-3
+              .input-group-prepend
+                span.input-group-text $
+              input.form-control(name='fullpost_price', required="true", type='number', aria-label='Amount (to the nearest dollar)', placeholder='24hr Post + Story')
+            .input-group.mb-3
+              .input-group-prepend
+                span.input-group-text $
+              input.form-control(name='halfpost_price', required="true", type='number', aria-label='Amount (to the nearest dollar)', placeholder='12hr Post + Story')
+
+            label(for='lib') Link in Bio
+            .input-group.mb-3
+                .input-group-prepend
+                  span.input-group-text $
+                input.form-control(name='lib_price', required='true', type='number', aria-label='Amount (to the nearest dollar)', placeholder='Additional Cost')
+                small#instagramHelp.form-text.text-muted Set this box to 0 if you include a Link-in-Bio with your shoutouts. If not - they are an additional cost - add the price to this box.
+            
+
+        button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+        p.mt-5.mb-3.text-muted © QuickShout 2018
+
+
+        

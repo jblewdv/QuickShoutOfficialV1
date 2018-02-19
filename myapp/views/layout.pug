@@ -1,0 +1,60 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title QuickShout - Take Control
+
+    link(href='bootstrap/bootstrap.min.css', rel='stylesheet')
+    link(href='font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Arimo', rel='stylesheet')
+    link(href='magnific-popup/magnific-popup.css', rel='stylesheet')
+    link(href='css/creative.min.css', rel='stylesheet')
+    link(href='css/login-signup.css', rel='stylesheet')
+
+
+  body
+    // Navigation
+    nav#mainNav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand.js-scroll-trigger(href='/') QuickShout
+      button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarResponsive.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='/#features') Features
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='/#pricing') Pricing
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='/#about') About Us
+          li.nav-item
+            a.nav-link.js-scroll-trigger(href='/#contact') Contact
+          if user
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='/dashboard/home') Dashboard
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='/users/logout') Logout
+          else
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='/users/login') Log In
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='/users/register') Sign Up
+
+    
+
+    != messages('message', locals)
+    if errors
+      each error, i in errors
+        div(class="alert alert-danger") #{error.msg}
+
+    block content
+
+  script(src='jquery/jquery.min.js')
+  script(src='bootstrap/js/bootstrap.bundle.min.js')
+  script(src='jquery-easing/jquery.easing.min.js')
+  script(src='scrollreveal/scrollreveal.min.js')
+  script(src='magnific-popup/jquery.magnific-popup.min.js')
+  script(src='js/creative.min.js')
+

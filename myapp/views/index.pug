@@ -1,0 +1,183 @@
+extends layout
+
+block content
+
+  main(role='main')
+  #myCarousel.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+      li.active(data-target='#myCarousel', data-slide-to='0')
+      li(data-target='#myCarousel', data-slide-to='1')
+      li(data-target='#myCarousel', data-slide-to='2')
+    .carousel-inner
+      .carousel-item.active
+        img.first-slide(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='First slide')
+        .container
+          .carousel-caption.text-left
+            h1 Make More Money.
+            p
+              | Easily schdedule advertisements on your page with QuickShout's immediate response feature. Increase your sales and conversions for more money in your pocket.
+            p
+              a.btn.btn-lg.btn-primary(href='/users/register', role='button') Sign up today
+      .carousel-item
+        img.second-slide(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Second slide')
+        .container
+          .carousel-caption
+            h1 Connect Up To 3 Accounts.
+            p
+              | We're so confident in our software that not only will it benefit a single page, but as many pages as you need. QuickShout can simultaneously manage and automate up to 3 Instagram accounts.
+            p
+              a.btn.btn-lg.btn-primary(href='/users/register', role='button') Let's go!
+      .carousel-item
+        img.third-slide(src='data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt='Third slide')
+        .container
+          .carousel-caption.text-right
+            h1 Referrals = $$$
+            p
+              | Share our software with the influencers you know! For each customer you bring us, we'll pay you 30% of their monthly payment. Why not be a good friend and help them make some money too!
+            p
+              a.btn.btn-lg.btn-primary(href='/users/register', role='button') Get started
+    a.carousel-control-prev(href='#myCarousel', role='button', data-slide='prev')
+      span.carousel-control-prev-icon(aria-hidden='true')
+      span.sr-only Previous
+    a.carousel-control-next(href='#myCarousel', role='button', data-slide='next')
+      span.carousel-control-next-icon(aria-hidden='true')
+      span.sr-only Next
+  //
+    Marketing messaging and featurettes
+    ==================================================
+  // Wrap the rest of the page in another container to center all the content.
+  // INNER CONTAINER
+  .container.marketing
+    // START THE FEATURES
+    .row
+      section#features
+        .container
+          .row
+            .col-lg-12.text-center
+              h2.section-heading Features
+              hr.my-4
+        .container
+          .row
+            .col-lg-3.col-md-6.text-center
+              .service-box.mt-5.mx-auto
+                i.fa.fa-4x.fa-bolt.text-primary.mb-3.sr-icons
+                h3.mb-3 Automation
+                p.text-muted.mb-0
+                  | Make more money with less
+                  | time by automating essential tasks.
+            .col-lg-3.col-md-6.text-center
+              .service-box.mt-5.mx-auto
+                i.fa.fa-4x.fa-sitemap.text-primary.mb-3.sr-icons
+                h3.mb-3 Organization
+                p.text-muted.mb-0
+                  | Daily customized reports
+                  | showing you the things that matter.
+            .col-lg-3.col-md-6.text-center
+              .service-box.mt-5.mx-auto
+                i.fa.fa-4x.fa-mouse-pointer.text-primary.mb-3.sr-icons
+                h3.mb-3 Easy Integration
+                p.text-muted.mb-0 Seamlessly connect all your Instagram accounts with the click of a button.
+            .col-lg-3.col-md-6.text-center
+              .service-box.mt-5.mx-auto
+                i.fa.fa-4x.fa-heart.text-primary.mb-3.sr-icons
+                h3.mb-3 Made with Love
+                p.text-muted.mb-0
+                  | Crafted and designed for
+                  | the best user experience.
+    // / END FEATURES
+    // START THE FEATURETTES
+    hr.featurette-divider
+    #about.row.featurette
+      .col-md-7
+        h2.featurette-heading
+          | First featurette heading. 
+          span.text-muted It'll blow your mind.
+        p.lead
+          | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+      .col-md-5
+        img.featurette-image.img-fluid.mx-auto(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
+    hr.featurette-divider
+    .row.featurette
+      .col-md-7.order-md-2
+        h2.featurette-heading
+          | Oh yeah, it's that good. 
+          span.text-muted See for yourself.
+        p.lead
+          | Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+      .col-md-5.order-md-1
+        img.featurette-image.img-fluid.mx-auto(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
+    hr.featurette-divider
+    // /END FEATURETTES
+  // /.container
+  // START THE PRICING
+  section#pricing.p-0
+    .background
+      .container
+        .panel.pricing-table
+          .pricing-plan
+            img.pricing-img(src='https://s22.postimg.org/8mv5gn7w1/paper-plane.png', alt='')
+            h2.pricing-header Beta Test
+            ul.pricing-features
+              li.pricing-features-item 100% Free Access
+              li.pricing-features-item Just Provide Feedback
+            span.pricing-price Free
+            a.pricing-button(href='/users/register') Sign up
+          .pricing-plan
+            img.pricing-img(src='https://s28.postimg.org/ju5bnc3x9/plane.png', alt='')
+            h2.pricing-header Tier 1
+            ul.pricing-features
+              li.pricing-features-item Connect Up To 1 Account
+              li.pricing-features-item Unlimited Access
+            span.pricing-price $30/month
+            a.pricing-button.is-featured(href='/users/register') Free trial
+          .pricing-plan
+            img.pricing-img(src='https://s21.postimg.org/tpm0cge4n/space-ship.png', alt='')
+            h2.pricing-header Tier 2
+            ul.pricing-features
+              li.pricing-features-item Connect Up To 3 Accounts
+              li.pricing-features-item Unlimited Access
+            span.pricing-price $50/month
+            a.pricing-button(href='/users/register') Sign Up
+  // / END OF PRICING
+  // START OF CONTACT
+  section#contact
+    .container
+      .row
+        .col-lg-8.mx-auto.text-center
+          h2.section-heading Let's Get In Touch!
+          hr.my-4
+          p.mb-5
+            | Ready to take your Influencer Page to the next level? That's great! Give us a call or send us an email and we will get back to you as soon as possible!
+      .row
+        .col-lg-4.ml-auto.text-center
+          i.fa.fa-phone.fa-3x.mb-3.sr-contact
+          p (816)-210-0870
+        .col-lg-4.mr-auto.text-center
+          i.fa.fa-envelope-o.fa-3x.mb-3.sr-contact
+          p
+            a(href='mailto:your-email@your-domain.com') joshua.blewj@gmail.com
+  // / END OF CONTACT
+  // FOOTER
+  hr.my-4
+  footer.container
+    p.float-right
+      a(href='#') Back to top
+    p
+      | © 2018 QuickShout, Inc. · 
+      a(href='#') Privacy
+      |  · 
+      a(href='#') Terms
+  // / END OF FOOTER
+
+
+  
+
+  
+
+
+
+
+
+
+
+  

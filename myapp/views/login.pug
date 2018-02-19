@@ -1,0 +1,24 @@
+extends layout
+
+block content
+	
+
+	link(href='/bootstrap/bootstrap.min.css', rel='stylesheet')
+	link(href='/css/login-signup.css', rel='stylesheet')
+
+	#myLoginCard.card
+		.card-body
+			form.form-signin(method='POST', action='/users/login')
+				h1.h3.mb-3.font-weight-normal Please log in
+				hr
+				.form-group
+					label(for='InputUsername') Username
+					input#InputUsername.form-control(type='username', required="true", name='username' placeholder='Username')
+				.form-group
+					label(for='InputPassword') Password
+					input#InputPassword.form-control(type='password', required="true", name='password' placeholder='Password')
+				button.btn.btn-lg.btn-primary.btn-block(type='submit') Log in
+				p.mt-5.mb-3.text-muted © QuickShout 2018
+
+
+

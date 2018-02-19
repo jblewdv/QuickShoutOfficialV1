@@ -1,0 +1,43 @@
+extends dash_layout
+
+block content
+
+
+	main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4(role='main')
+		.d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-2.mb-3.border-bottom
+			h1.h2 Connected Accounts
+			<!-- .btn-toolbar.mb-2.mb-md-0
+				.btn-group.mr-2
+					button.btn.btn-sm.btn-outline-secondary Share
+					button.btn.btn-sm.btn-outline-secondary Export
+				button.btn.btn-sm.btn-outline-secondary.dropdown-toggle
+					span(data-feather='calendar')
+					|	This week -->
+		
+		.card
+			.card-body
+				h5  Below are your connected Instagram Accounts 
+				if data
+					p @#{data}
+		.card
+			.card-body
+				h5  Update Instagram Account 
+				p
+					| To update the username and/or password of your connected accounts, fill out the form below and click submit.
+
+				form(method='POST', action='#')
+					.row
+						.col
+							.input-group.mb-3
+								.input-group-prepend
+									span#basic-addon1.input-group-text @
+								input.form-control(name='ig_username', type='text', placeholder='Username', aria-describedby='basic-addon1')
+						.col
+							.input-group.mb-3
+								input.form-control(name='ig_password', type='text', placeholder='Password', aria-describedby='basic-addon1')
+					small.form-text.text-muted
+						| Before sumbitting be sure the data you provided is correct or QuickShout will not work properly.
+					br
+					// Submit Button
+					button.btn.btn-primary(type='submit') Submit
+     
