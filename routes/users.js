@@ -21,7 +21,7 @@ var User = require('../models/user');
 
 // <==============================================================>
 // <=== FUNCTIONS ===>
-
+//...
 // <==============================================================>
 
 
@@ -120,6 +120,7 @@ router.post('/register', function(req, res){
 	}
 });
 
+
 router.get('/login/verify', function(req, res) {
 	if (req.user.finished_beta_tutorial === true) {
 		req.flash('success', 'You are now logged in!');
@@ -131,18 +132,12 @@ router.get('/login/verify', function(req, res) {
 
 		res.redirect('/users/slider');
 	}
-;})
+});
 
 // login
-router.post('/login', function(req, res) {
-
-	passport.authenticate('local', {
-		successRedirect:'/users/login/verify', 
-		failureRedirect:'/users/login', 
-		failureFlash: true
-	});
-  	
-  	//req.flash('success', 'You are now logged in!');
+router.post('/login', passport.authenticate('local', {successRedirect:'/users/verify', failureRedirect:'/users/login', failureFlash: true}),
+  function(req, res) {
+  	req.flash('success', 'You are now logged in!');
   }
 );
 
