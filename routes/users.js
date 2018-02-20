@@ -33,7 +33,7 @@ router.get('/login', function(req, res){
 		layout : 'layout'});
 });
 
-router.get('/beta_info', function(req, res) {
+router.get('/slider', function(req, res) {
 	res.render('slider');
 });
 // <==============================================================>
@@ -99,7 +99,7 @@ router.post('/register', function(req, res){
 
 // login
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/users/beta_info', failureRedirect:'/users/login', failureFlash: true}),
+  passport.authenticate('local', {successRedirect:'/users/slider', failureRedirect:'/users/login', failureFlash: true}),
   function(req, res) {
   	req.flash('success', 'You are now logged in!');
   }

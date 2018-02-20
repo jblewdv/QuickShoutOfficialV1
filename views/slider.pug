@@ -2,7 +2,9 @@ extends layout
 
 block content
 
-    link(rel='stylesheet', href='/css/slidertutorial/sequence-theme.basic.css')
+    link(href='/css/slidertutorial/sequence-theme.basic.css', rel='stylesheet')
+    link(href='/bootstrap/bootstrap.min.css', rel='stylesheet')
+ 
 
     #sequence.seq
       .seq-screen
@@ -45,6 +47,12 @@ block content
           a(href='#step5', rel='step5', title='Go to slide 5') Be Sure To Follow The Rules 
         li
           a(href='#step6', rel='step6', title='Go to slide 6') Get Started Now!
+
+
+    script(src='/js/slidertutorial/imagesloaded.pkgd.min.js')
+    script(src='/js/slidertutorial/hammer.min.js')
+    script(src='/js/slidertutorial/sequence.min.js')
+    script(src='/js/slidertutorial/sequence-theme.basic.js')
           
 
 
