@@ -122,7 +122,7 @@ router.post('/register', function(req, res){
 
 
 router.get('/login/verify', function(req, res) {
-	res.send('verifying...');
+	//res.send('verifying...');
 
 	if (req.user.finished_beta_tutorial === true) {
 		req.flash('success', 'You are now logged in!');
@@ -138,7 +138,7 @@ router.get('/login/verify', function(req, res) {
 });
 
 // login
-router.post('/login', passport.authenticate('local', {successRedirect:'/users/verify', failureRedirect:'/users/login', failureFlash: true}),
+router.post('/login', passport.authenticate('local', {successRedirect:'/users/login/verify', failureRedirect:'/users/login', failureFlash: true}),
   function(req, res) {
   	req.flash('success', 'You are now logged in!');
   }
