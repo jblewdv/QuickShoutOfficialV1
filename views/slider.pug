@@ -1,17 +1,10 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    title QuickShout - Take Control
+extends layout
 
-    link(href='bootstrap/bootstrap.min.css', rel='stylesheet')
+block content
+
+    link(href='/bootstrap/bootstrap.min.css', rel='stylesheet')
     link(href='/css/sequence-theme.basic.css', rel='stylesheet')
-  
-
-  body
+    
     #sequence.seq
       .seq-screen
         ul.seq-canvas
@@ -39,7 +32,8 @@ html
             .seq-content
               h2.seq-title(data-seq='') Get Started Now!
               h3.seq-subtitle(data-seq='') If you agree to these terms, click the button below to get started
-              a.seq-button(href='/dashboard/home', target='_blank', tabindex='-1') Let's Go →
+              form(method='POST', action='/users/slider')
+                button.btn.btn-primary(type='submit') Let's Go
       ul.seq-pagination(rel='sequence', role='navigation', aria-label='Pagination')
         li
           a(href='#step1', rel='step1', title='Go to slide 1') Our Exclusive Closed Beta
@@ -55,10 +49,10 @@ html
           a(href='#step6', rel='step6', title='Go to slide 6') Get Started Now!
 
 
-  script(src='/js/imagesloaded.pkgd.min.js')
-  script(src='/js/hammer.min.js')
-  script(src='/js/sequence.min.js')
-  script(src='/js/sequence-theme.basic.js')
+    script(src='/js/imagesloaded.pkgd.min.js')
+    script(src='/js/hammer.min.js')
+    script(src='/js/sequence.min.js')
+    script(src='/js/sequence-theme.basic.js')
           
 
 

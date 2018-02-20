@@ -21,6 +21,11 @@ const bcrypt = require('bcryptjs');
 // <=== user schema ===>
 const UserSchema = new Schema({
 
+	finished_beta_tutorial: {
+		type: Boolean,
+		default: false
+	},
+
 	// PERSONAL USER INFO
 	username: {
 		type: String,

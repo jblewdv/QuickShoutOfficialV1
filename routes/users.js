@@ -39,6 +39,23 @@ router.get('/slider', function(req, res) {
 // <==============================================================>
 // <=== POST METHODS ===>
 
+// slider
+router.post('/slider', function(req, res) {
+	var id = req.user.id;
+
+	User.update(
+		{ "_id" : id },
+	    { "finished_beta_tutorial" : true },
+	    function(err, model) {
+	        if (err) {
+	        	console.log(err);
+	        }
+	    }
+	);
+
+	res.redirect('/dashboard/home');
+});
+
 // register
 router.post('/register', function(req, res){
 	// Set Variables

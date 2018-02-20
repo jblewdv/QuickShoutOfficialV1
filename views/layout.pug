@@ -23,20 +23,20 @@ html
         span.navbar-toggler-icon
       #navbarResponsive.collapse.navbar-collapse
         ul.navbar-nav.ml-auto
-          li.nav-item
-            a.nav-link.js-scroll-trigger(href='/#features') Features
-          li.nav-item
-            a.nav-link.js-scroll-trigger(href='/#pricing') Pricing
-          li.nav-item
-            a.nav-link.js-scroll-trigger(href='/#about') About Us
-          li.nav-item
-            a.nav-link.js-scroll-trigger(href='/#contact') Contact
           if user
             li.nav-item
               a.nav-link.js-scroll-trigger(href='/dashboard/home') Dashboard
             li.nav-item
               a.nav-link.js-scroll-trigger(href='/users/logout') Logout
           else
+            li.nav-item
+                a.nav-link.js-scroll-trigger(href='/#features') Features
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='/#pricing') Pricing
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='/#about') About Us
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='/#contact') Contact
             li.nav-item
               a.nav-link.js-scroll-trigger(href='/users/login') Log In
             li.nav-item
