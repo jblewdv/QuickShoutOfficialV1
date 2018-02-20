@@ -122,8 +122,11 @@ router.post('/register', function(req, res){
 
 
 router.get('/login/verify', function(req, res) {
+	res.send('verifying...');
+
 	if (req.user.finished_beta_tutorial === true) {
 		req.flash('success', 'You are now logged in!');
+		console.log(req.user.finished_beta_tutorial);
 
 		res.redirect('/dashboard/home');
 	}
