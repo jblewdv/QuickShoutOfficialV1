@@ -21,17 +21,7 @@ var User = require('../models/user');
 
 // <==============================================================>
 // <=== FUNCTIONS ===>
-
-function ensureHaveSeen(req, res, next) {
-	if (req.user.finished_beta_tutorial === true) {
-		return next();
-	}
-	else {
-		req.flash('danger', 'Please read the Beta tutorial before continuing.');
-		res.redirect('/users/slider');
-	}
-
-}
+//...
 // <==============================================================>
 
 
@@ -131,8 +121,23 @@ router.post('/register', function(req, res){
 });
 
 // login
-router.post('/login', ensureHaveSeen, function(req, res) {
-  	req.flash('success', 'You are now logged in!');
+router.post('/login', function(req, res) {
+
+	passport.authenticate('local', { 
+		failureRedirect:'/users/login', 
+		failureFlash: true
+	});
+
+	if (req.user.finished_beta_tutorial === true) {
+		req.flash('success', 'You are now logged in!');
+
+		res.redirect('/dashboard/home');
+	}
+	else {
+		req.flash('danger', 'Please read the Beta tutorial before continuing.');
+
+		res.redirect('/users/slider');
+	}
   }
 );
 
