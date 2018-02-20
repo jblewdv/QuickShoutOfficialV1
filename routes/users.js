@@ -20,6 +20,22 @@ var User = require('../models/user');
 
 
 // <==============================================================>
+// <=== FUNCTIONS ===>
+
+function ensureHaveSeen(res, res, next) {
+	if (req.user.finished_beta_tutorial === true) {
+		return next();
+	}
+	else {
+		req.flash('danger', 'Please read the Beta tutorial before continuing.');
+		res.redirect('/users/slider');
+	}
+
+}
+// <==============================================================>
+
+
+// <==============================================================>
 // <=== GET METHODS ===>
 
 // register
@@ -115,9 +131,7 @@ router.post('/register', function(req, res){
 });
 
 // login
-router.post('/login',
-  passport.authenticate('local', {successRedirect:'/users/slider', failureRedirect:'/users/login', failureFlash: true}),
-  function(req, res) {
+router.post('/login', ensureHaveSeen, function(req, res) {
   	req.flash('success', 'You are now logged in!');
   }
 );

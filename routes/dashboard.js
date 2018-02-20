@@ -20,7 +20,7 @@ var Tester = require('../backend');
 
 // <==============================================================>
 // <=== Authenticated Login Function ===>
-function ensureAuthenticated(req, res, next){
+function ensureAuthenticated(req, res, next) {
 	if(req.isAuthenticated()){
 		return next();
 	} else {
