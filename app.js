@@ -64,10 +64,12 @@ app.use(helmet.contentSecurityPolicy({
   }
 }));
 // Sets Expect-CT: enforce; max-age=123
+/* Throws error on 'expectCt'
 app.use(expectCt({
   enforce: true,
   maxAge: 123
 }));
+*/
 // HPKP Needs added eventually
 // No Cache
 app.use(helmet.noCache());
