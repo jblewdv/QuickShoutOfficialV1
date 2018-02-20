@@ -55,6 +55,26 @@ paypal.configure({
 // <=== Init App ===>
 const app = express();
 
+// <=== Helmet Headers ===>
+app.use(helmet());
+// Content Security Policy
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"]
+  }
+}));
+// Sets Expect-CT: enforce; max-age=123
+app.use(expectCt({
+  enforce: true,
+  maxAge: 123
+}));
+// HPKP Needs added eventually
+// No Cache
+app.use(helmet.noCache());
+// Sets "Referrer-Policy: same-origin".
+app.use(helmet.referrerPolicy({ policy: 'same-origin' }));
+
+
 // <=== View Engine ===>
 app.set('views', path.join(__dirname, 'views'));
 //app.engine('handlebars', exphbs({defaultLayout:'layout'}));
