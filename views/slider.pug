@@ -1,10 +1,17 @@
-extends layout
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title QuickShout - Take Control
 
-block content
-
-    link(href='/bootstrap/bootstrap.min.css', rel='stylesheet')
+    link(href='bootstrap/bootstrap.min.css', rel='stylesheet')
     link(href='/css/sequence-theme.basic.css', rel='stylesheet')
-    
+  
+
+  body
     #sequence.seq
       .seq-screen
         ul.seq-canvas
@@ -48,10 +55,10 @@ block content
           a(href='#step6', rel='step6', title='Go to slide 6') Get Started Now!
 
 
-    script(src='/js/imagesloaded.pkgd.min.js')
-    script(src='/js/hammer.min.js')
-    script(src='/js/sequence.min.js')
-    script(src='/js/sequence-theme.basic.js')
+  script(src='/js/imagesloaded.pkgd.min.js')
+  script(src='/js/hammer.min.js')
+  script(src='/js/sequence.min.js')
+  script(src='/js/sequence-theme.basic.js')
           
 
 
