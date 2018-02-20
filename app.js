@@ -33,7 +33,7 @@ var helmet = require('helmet');
 
 // <==============================================================>
 // <=== Database Connection ===>
-mongoose.connect('mongodb://WashingtonIrving:guccigang@ds041678.mlab.com:41678/heroku_c5drsnwg');
+mongoose.connect('mongodb://heroku_16tlm7lh:cfaplelj7v34tf2j2n3bra1vq8@ds241668.mlab.com:41668/heroku_16tlm7lh');
 //mongoose.connect('mongodb://localhost/tester');
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
