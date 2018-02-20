@@ -22,7 +22,7 @@ var User = require('../models/user');
 // <==============================================================>
 // <=== FUNCTIONS ===>
 
-function ensureHaveSeen(res, res, next) {
+function ensureHaveSeen(req, res, next) {
 	if (req.user.finished_beta_tutorial === true) {
 		return next();
 	}
