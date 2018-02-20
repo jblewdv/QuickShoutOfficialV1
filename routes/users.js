@@ -32,6 +32,10 @@ router.get('/login', function(req, res){
 	res.render('login', {
 		layout : 'layout'});
 });
+
+router.get('/beta_info', function(req, res) {
+	res.render('slider');
+});
 // <==============================================================>
 // <=== POST METHODS ===>
 
@@ -95,7 +99,7 @@ router.post('/register', function(req, res){
 
 // login
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/dashboard/home', failureRedirect:'/users/login', failureFlash: true}),
+  passport.authenticate('local', {successRedirect:'/users/beta_info', failureRedirect:'/users/login', failureFlash: true}),
   function(req, res) {
   	req.flash('success', 'You are now logged in!');
   }

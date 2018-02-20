@@ -1,0 +1,51 @@
+extends layout
+
+block content
+
+    link(rel='stylesheet', href='/css/slidertutorial/sequence-theme.basic.css')
+
+    #sequence.seq
+      .seq-screen
+        ul.seq-canvas
+          li#step1.seq-step1
+            .seq-content
+              h2.seq-title(data-seq='') Our Exclusive Closed Beta
+              h3.seq-subtitle(data-seq='') Before we officialy launch, we want to connect with influencers to build the best product we can
+          li#step2.seq-step2
+            .seq-content
+              h2.seq-title(data-seq='') Just Give Your Feedback!
+              h3.seq-subtitle(data-seq='') You get to use our software for FREE, just send us your feedback and thoughts along the way - that's it
+          li#step3.seq-step3
+            .seq-content
+              h2.seq-title(data-seq='') You're Special To Us
+              h3.seq-subtitle(data-seq='') This Beta Test is only open for a month, and you are one of the limited 20 people with full access
+          li#step4.seq-step4
+            .seq-content
+              h2.seq-title(data-seq='') But We've Got More!
+              h3.seq-subtitle(data-seq='') Stick with us through the entire Beta Test and you'll get access to a lifetime reduced price, extra early access, and referral payouts when we launch
+          li#step5.seq-step5
+            .seq-content
+              h2.seq-title(data-seq='') Be Sure To Follow The Rules
+              h3.seq-subtitle(data-seq='') As long as you provide your honest feedback, you will have access to all these benefits. Otherwise, we will ask you to leave the Beta and give up your benefits
+          li#step6.seq-step6
+            .seq-content
+              h2.seq-title(data-seq='') Get Started Now!
+              h3.seq-subtitle(data-seq='') If you agree to these terms, click the button below to get started
+              a.seq-button(href='/dashboard/home', target='_blank', tabindex='-1') Let's Go →
+      ul.seq-pagination(rel='sequence', role='navigation', aria-label='Pagination')
+        li
+          a(href='#step1', rel='step1', title='Go to slide 1') Our Exclusive Closed Beta
+        li
+          a(href='#step2', rel='step2', title='Go to slide 2') Just Give Your Feedback!
+        li
+          a(href='#step3', rel='step3', title='Go to slide 3') You're Special To Us
+        li
+          a(href='#step4', rel='step4', title='Go to slide 4') But We've Got More! 
+        li
+          a(href='#step5', rel='step5', title='Go to slide 5') Be Sure To Follow The Rules 
+        li
+          a(href='#step6', rel='step6', title='Go to slide 6') Get Started Now!
+          
+
+
+

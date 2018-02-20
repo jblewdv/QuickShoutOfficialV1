@@ -19,7 +19,6 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-//var exphbs = require('express-handlebars');
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 var session = require('express-session');
@@ -28,6 +27,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var helmet = require('helmet');
+const paypal = require('paypal-rest-sdk');
 // <==============================================================>
 
 
@@ -38,18 +38,97 @@ mongoose.connect('mongodb://heroku_16tlm7lh:cfaplelj7v34tf2j2n3bra1vq8@ds241668.
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
+
 // <=== Routes ===>
 var index = require('./routes/index');
 var users = require('./routes/users');
 var dashboard = require('./routes/dashboard');
 
+
+
+paypal.configure({
+  'mode': 'sandbox', //sandbox or live
+  'client_id': 'AVAtmNhtJYXagDING29w6R0QEPzQkDKJgPSRY_qSAniEQfMtKj_c8kP0Q7yaoIhlv1Xf4X7lQM55Qp50',
+  'client_secret': 'EHbxeFq1DeTG-fBFyPFD_hb_9nWY1l48vZ86QWnWfd1sjWeUX4hWdWuf7XQ3M4ycra0wHlHzMBDDek_e'
+});
+
 // <=== Init App ===>
-var app = express();
+const app = express();
 
 // <=== View Engine ===>
 app.set('views', path.join(__dirname, 'views'));
 //app.engine('handlebars', exphbs({defaultLayout:'layout'}));
 app.set('view engine', 'pug');
+
+app.post('/pay', (req, res) => {
+  const create_payment_json = {
+    "intent": "sale",
+    "payer": {
+        "payment_method": "paypal"
+    },
+    "redirect_urls": {
+        "return_url": "http://localhost:3000/success",
+        "cancel_url": "http://localhost:3000/cancel"
+    },
+    "transactions": [{
+        "item_list": {
+            "items": [{
+                "name": "Red Sox Hat",
+                "sku": "001",
+                "price": "25.00",
+                "currency": "USD",
+                "quantity": 1
+            }]
+        },
+        "amount": {
+            "currency": "USD",
+            "total": "25.00"
+        },
+        "description": "Hat for the best team ever"
+    }]
+  };
+
+  paypal.payment.create(create_payment_json, function (error, payment) {
+    if (error) {
+        throw error;
+    } else {
+        for(let i = 0;i < payment.links.length;i++){
+          if(payment.links[i].rel === 'approval_url'){
+            res.redirect(payment.links[i].href);
+          }
+        }
+    }
+  });
+
+});
+
+app.get('/success', (req, res) => {
+  const payerId = req.query.PayerID;
+  const paymentId = req.query.paymentId;
+
+  const execute_payment_json = {
+    "payer_id": payerId,
+    "transactions": [{
+      "amount": {
+        "currency": "USD",
+        "total": "25.00"
+      }
+    }]
+  };
+
+   paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+    if (error) {
+        console.log(error.response);
+        throw error;
+    } else {
+        console.log(JSON.stringify(payment));
+        res.send('Success');
+    }
+  });
+});
+
+app.get('/cancel', (req, res) => res.send('Cancelled'));
+
 
 // <=== Middleware ===>
 // uncomment after placing your favicon in /public
