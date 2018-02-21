@@ -57,12 +57,16 @@ const app = express();
 
 // <=== Helmet Headers ===>
 app.use(helmet());
+
 // Content Security Policy
+/* Conflicting w/ Referrer-Policy, blocking JS files on load
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"]
   }
 }));
+*/
+
 // Sets Expect-CT: enforce; max-age=123
 /* Throws error on 'expectCt'
 app.use(expectCt({
@@ -70,9 +74,12 @@ app.use(expectCt({
   maxAge: 123
 }));
 */
+
 // HPKP Needs added eventually
+
 // No Cache
 app.use(helmet.noCache());
+
 // Sets "Referrer-Policy: same-origin".
 app.use(helmet.referrerPolicy({ policy: 'same-origin' }));
 

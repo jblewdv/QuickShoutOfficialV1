@@ -127,17 +127,28 @@ router.get('/login/verify', function(req, res) {
 		res.redirect('/dashboard/home');
 	}
 	else {
-		req.flash('danger', 'Please read the Beta tutorial before continuing.');
+		req.flash('primary', 'Please read the Beta tutorial before continuing.');
 
 		res.redirect('/users/slider');
 	}
 });
 
 // login
-router.post('/login', passport.authenticate('local', {successRedirect:'/users/login/verify', failureRedirect:'/users/login', failureFlash: true}),
-  function(req, res) {
-  	req.flash('success', 'You are now logged in!');
-  }
+router.post('/login', passport.authenticate('local', 
+	{failureRedirect:'/users/login', 
+	failureFlash: true}),
+  	function(req, res) {
+  		if (req.user.finished_beta_tutorial) {
+            req.flash('success', 'You are now logged in!');
+
+            res.redirect('/dashboard/home');
+        }
+        else {
+            req.flash('danger', 'Please read the Beta tutorial before continuing.');
+
+           res.redirect('/users/slider');
+       }
+  	}
 );
 
 
