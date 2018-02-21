@@ -19,13 +19,19 @@ block content
 				div(class="alert alert-danger") #{error.msg}
 		.alert.alert-success.alert-dismissible.fade.show(role='alert')
 			h4.alert-heading Well done!
-			p
-				| Now that you've logged in, you can start the software. All you have to do is follow the instructions below to get started.
+			p Now that you've logged in, you can start the software. All you have to do is follow the instructions below to get started.
+
+		.alert.alert-warning.alert-dismissible.fade.show(role='alert')
+			strong Holy guacamole!
+			|  You should check in on some of those fields below.
+			button.close(type='button', data-dismiss='alert', aria-label='Close')
+				span(aria-hidden='true') ×
+
 			
 		.card
 			.card-body
 				h3 How To Use:
-				p QuickShout is designed to connect with your Instagram account and locate the Direct Messages that relate to paid promotions and shoutouts. It goes this once every single day at 12:00pm CST (Central Standard Time). In the future, you will be able to customize the times that the software runs. 
+				p QuickShout is designed to connect with your Instagram account and locate the Direct Messages that relate to paid promotions and shoutouts. It does this once every single day at 12:00pm CST (Central Standard Time). In the future, you will be able to customize the times that the software runs. 
 				p To start QuickShout, simply press the "Start Running" button below. We will handle everything else after that. Once you start the software, it will run automatically - nothing else needs to be done on your part.
 				p When QuickShout has finished running for the day after 12:00pm, you can find the results under the "Leads" tab on the left-hand side. You will be shown the Instagram Profile Picture and Username of each person inquiring about a paid promotion or shoutout, as well as the status of the interaction. 
 				form(action='/dashboard/home', method='POST')

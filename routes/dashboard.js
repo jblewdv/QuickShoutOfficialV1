@@ -37,6 +37,7 @@ function ensureAuthenticated(req, res, next) {
 // dashboard
 router.get('/home', ensureAuthenticated, function(req, res) {
 	res.render('dashboard', {layout : 'dash_layout'});
+	console.log("This should work");
 });
 
 // dashboard - leads
