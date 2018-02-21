@@ -73,7 +73,7 @@ const UserSchema = new Schema({
 		default: 0
 	},
 	leads: [{
-		title: { type: String, unique: true, sparse: true },
+		title: { type: String },
 		ig_id: { type: Number },
 		profilePic: { type: String },
 		text: { type: String }

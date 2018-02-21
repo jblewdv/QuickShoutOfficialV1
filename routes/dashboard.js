@@ -111,6 +111,12 @@ router.post('/home', function(req, res) {
 	myFnEventEmitter.on('started', data => {
 		console.log("Done!");
 		console.log(data);
+
+		var test = User.findOne(
+			{ "_id" : id },
+			{ "ig_username" : true }
+		);
+		console.log(test);
 		
 		for (object in data) {
 
