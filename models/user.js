@@ -96,10 +96,12 @@ module.exports.createUser = function(newUser, callback){
 	        newUser.password = hash;
 	        newUser.save(callback);
 	    });
+	    /*
 	    bcrypt.hash(newUser.ig_password, salt, function(err, hash) {
 	    	newUser.ig_password = hash;
 	    	newUser.save(callback);
 	    });
+	    */
 	});
 }
 
