@@ -77,17 +77,17 @@ router.get('/settings', ensureAuthenticated, function(req, res) {
 });
 
 // dashboard - our software
-router.get('/our_software', function(req, res) {
+router.get('/our_software', ensureAuthenticated, function(req, res) {
 	res.render('our_software', {layout : 'dash_layout'});
 });
 
 // dashboard - how to sse
-router.get('/how_to_use', function(req, res) {
+router.get('/how_to_use', ensureAuthenticated, function(req, res) {
 	res.render('how_to_use', {layout : 'dash_layout'});
 });
 
 // dashboard - contact
-router.get('/contact', function(req, res) {
+router.get('/contact', ensureAuthenticated, function(req, res) {
 	res.render('contact', {layout : 'dash_layout'});
 });
 // <==============================================================>

@@ -28,7 +28,7 @@ module.exports.myFunction = function(ig_username, ig_password, story_price, full
 	const myFnEventEmitter = new(require('events').EventEmitter)();
 	
 	// Executes job everyday @ 12:00pm
-	var job = new CronJob('00 00 12 * * 0-6', function() {
+	var job = new CronJob('00 00 14 * * 0-6', function() {
 		
 		Client.Session.create(device, storage, ig_username, ig_password)
 

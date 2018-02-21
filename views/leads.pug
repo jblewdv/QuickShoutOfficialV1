@@ -13,14 +13,19 @@ block content
 					span(data-feather='calendar')
 					|	This week -->
 		h5  Here is a list of your current leads. 
-		each val in docs
-			.card
-				.card-body
-					div
-						h5 User: 
-						p= val.title 
-						br
-						h5 Message: 
-						p= val.text 
+		hr
+
+		table.table.table-striped
+			thead
+				tr
+					th(scope='col') Profile Pic
+		 			th(scope='col') Username
+					th(scope='col') Status
+			tbody
+				each val in docs
+					tr
+						td= val.profilePic
+						td= vale.title
+						td Response Sent 
 	
 
