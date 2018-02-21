@@ -12,7 +12,7 @@
 // <==============================================================>
 // <=== IMPORTS ===>
 var Client = require('instagram-private-api').V1;
-var device = new Client.Device('joshuablew');
+var device = new Client.Device('washingtonirving');
 var storage = new Client.CookieFileStorage('./cookies/someuser.json');
 var lodash = require('lodash');
 var Promise = require('bluebird');
@@ -25,6 +25,7 @@ var CronJob = require('cron').CronJob;
 // <==============================================================>
 // <=== main function ===>
 module.exports.myFunction = function(ig_username, ig_password, story_price, fullpost_price, halfpost_price, lib_price) {
+	
 	const myFnEventEmitter = new(require('events').EventEmitter)();
 	
 	// Executes job everyday @ 12:00pm
@@ -79,7 +80,6 @@ module.exports.myFunction = function(ig_username, ig_password, story_price, full
 						}
 					}
 				}
-				console.log(promos);
 
 				/*
 				for (i in promos) {
