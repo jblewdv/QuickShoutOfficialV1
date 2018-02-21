@@ -33,7 +33,7 @@ const paypal = require('paypal-rest-sdk');
 
 // <==============================================================>
 // <=== Database Connection ===>
-mongoose.connect('mongodb://heroku_16tlm7lh:cfaplelj7v34tf2j2n3bra1vq8@ds241668.mlab.com:41668/heroku_16tlm7lh');
+mongoose.connect('mongodb://heroku_tw31tg4w:iipsi9e9vuqcdvd5oupm9935vm@ds245548.mlab.com:45548/heroku_tw31tg4w');
 //mongoose.connect('mongodb://localhost/tester');
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
