@@ -46,15 +46,6 @@ block content
     Marketing messaging and featurettes
     ==================================================
   // Wrap the rest of the page in another container to center all the content.
-  
-
-
-  h1 Boston Red Sox Hat
-  h2 Buy For $25
-  form(action='/pay', method='post')
-    input(type='submit', value='Buy')
-
-
 
   // INNER CONTAINER
   .container.marketing
@@ -118,37 +109,59 @@ block content
         img.featurette-image.img-fluid.mx-auto(data-src='holder.js/500x500/auto', alt='Generic placeholder image')
     hr.featurette-divider
     // /END FEATURETTES
-  // /.container
+
   // START THE PRICING
-  section#pricing.p-0
-    .background
-      .container
-        .panel.pricing-table
-          .pricing-plan
-            img.pricing-img(src='https://s22.postimg.org/8mv5gn7w1/paper-plane.png', alt='')
-            h2.pricing-header Beta Test
-            ul.pricing-features
-              li.pricing-features-item 100% Free Access
-              li.pricing-features-item Just Provide Feedback
-            span.pricing-price Free
-            a.pricing-button(href='/users/register') Sign up
-          .pricing-plan
-            img.pricing-img(src='https://s28.postimg.org/ju5bnc3x9/plane.png', alt='')
-            h2.pricing-header Tier 1
-            ul.pricing-features
-              li.pricing-features-item Connect Up To 1 Account
-              li.pricing-features-item Unlimited Access
-            span.pricing-price $30/month
-            a.pricing-button.is-featured(href='/users/register') Free trial
-          .pricing-plan
-            img.pricing-img(src='https://s21.postimg.org/tpm0cge4n/space-ship.png', alt='')
-            h2.pricing-header Tier 2
-            ul.pricing-features
-              li.pricing-features-item Connect Up To 3 Accounts
-              li.pricing-features-item Unlimited Access
-            span.pricing-price $50/month
-            a.pricing-button(href='/users/register') Sign Up
-  // / END OF PRICING
+  section#pricing
+    .pricing-header.px-3.py-3.pt-md-5.pb-md-4.mx-auto.text-center
+      h1.display-4 Pricing
+      p.lead
+        | Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.
+    .container
+      .card-deck.mb-3.text-center
+        .card.mb-4.box-shadow
+          .card-header
+            h4.my-0.font-weight-normal Free Beta
+          .card-body
+            h1.card-title.pricing-card-title
+              | $0 
+              small.text-muted / mo
+            ul.list-unstyled.mt-3.mb-4
+              li 1 Instagram Account
+              li Unlimited Access
+              li Exclusive Benefits
+              li Only 20 Spots Available
+            a.btn.btn-outline-primary.btn-lg.btn-block(href='/users/register', role='button') Sign up for free
+
+        .card.mb-4.box-shadow
+          .card-header
+            h4.my-0.font-weight-normal Tier 1
+          .card-body
+            h1.card-title.pricing-card-title
+              | $29 
+              small.text-muted / mo
+            ul.list-unstyled.mt-3.mb-4
+              li 1 Instagram Account
+              li Detailed Tracking
+              li General Support
+              li Affiliate Opportunity
+            button.btn.btn-lg.btn-block.btn-primary(type='button') Closed For Beta
+
+        .card.mb-4.box-shadow
+          .card-header
+            h4.my-0.font-weight-normal Tier 2
+          .card-body
+            h1.card-title.pricing-card-title
+              | $49
+              small.text-muted / mo
+            ul.list-unstyled.mt-3.mb-4
+              li 3 Instagram Accounts
+              li Custom Reports
+              li Priority Email Support
+              li Affiliate Opportunity
+            button.btn.btn-lg.btn-block.btn-primary(type='button') Closed For Beta
+    hr
+
+
   // START OF CONTACT
   section#contact
     .container
