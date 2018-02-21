@@ -47,7 +47,6 @@ router.get('/leads', ensureAuthenticated, function(req, res) {
 		if(err) throw err;
 		else {
 			var docs = doc[0].leads;
-			console.log(docs);
 
 			res.render('leads', {
 				layout : 'dash_layout',

@@ -79,6 +79,7 @@ module.exports.myFunction = function(ig_username, ig_password, story_price, full
 						}
 					}
 				}
+				console.log(promos);
 
 				/*
 				for (i in promos) {
