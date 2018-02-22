@@ -152,7 +152,7 @@ router.post('/home', function(req, res) {
 				);
 			}
 			*/
-		}
+
 		console.log(titles);
 
 	});
