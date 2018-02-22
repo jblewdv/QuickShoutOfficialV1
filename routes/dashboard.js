@@ -114,6 +114,17 @@ router.post('/home', function(req, res) {
 
 		var recs = [];
 
+		User.find({"_id": id}, {"leads": true}, function(err, doc) {
+			if(err) throw err;
+			
+			else {
+				var docs = doc[0].leads;
+
+				recs.push(docs);
+				console.log(docs);
+			}
+		});
+
 		for (object in data) {
 
 			var title = data[object].title;
@@ -124,15 +135,7 @@ router.post('/home', function(req, res) {
 			
 		}
 
-		User.find({"_id": id}, {"leads": true}, function(err, doc) {
-			if(err) throw err;
-			
-			else {
-				var docs = doc[0].leads;
-
-				console.log(docs);
-			}
-		});
+		
 
 			
 			// Model the User.find() from above in GET leads
