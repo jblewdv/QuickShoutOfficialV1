@@ -48,7 +48,7 @@ router.post('/slider', function(req, res) {
 
 	User.update(
 		{ "_id" : id },
-	    { "finished_beta_tutorial" : true },
+	    { "finishedBetaTutorial" : true },
 	    function(err, model) {
 	        if (err) {
 	        	console.log(err);
@@ -116,13 +116,13 @@ router.post('/register', function(req, res){
 	}
 });
 
-
+/*
 router.get('/login/verify', function(req, res) {
 	//res.send('verifying...');
 
-	if (req.user.finished_beta_tutorial === true) {
+	if (req.user.finishedBetaTutorial === true) {
 		req.flash('success', 'You are now logged in!');
-		console.log(req.user.finished_beta_tutorial);
+		console.log(req.user.finishedBetaTutorial);
 
 		res.redirect('/dashboard/home');
 	}
@@ -132,13 +132,14 @@ router.get('/login/verify', function(req, res) {
 		res.redirect('/users/slider');
 	}
 });
+*/
 
 // login
 router.post('/login', passport.authenticate('local', 
 	{failureRedirect:'/users/login', 
 	failureFlash: true}),
   	function(req, res) {
-  		if (req.user.finished_beta_tutorial) {
+  		if (req.user.finishedBetaTutorial) {
             req.flash('success', 'You are now logged in!');
 
             res.redirect('/dashboard/home');

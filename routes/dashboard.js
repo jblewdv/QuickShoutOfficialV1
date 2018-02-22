@@ -58,8 +58,8 @@ router.get('/leads', ensureAuthenticated, function(req, res) {
 });
 
 // dashboard - reports
-router.get('/reports', ensureAuthenticated, function(req, res) {
-	res.render('reports', {layout : 'dash_layout'});
+router.get('/feedback', ensureAuthenticated, function(req, res) {
+	res.render('feedback', {layout : 'dash_layout'});
 });
 
 // dashboard - connected accounts
@@ -70,11 +70,6 @@ router.get('/accounts', ensureAuthenticated, function(req, res) {
 		layout : 'dash_layout',
 		data: usernamey
 	});
-});
-
-// dashboard - settings
-router.get('/settings', ensureAuthenticated, function(req, res) {
-	res.render('settings', {layout: 'dash_layout'});
 });
 
 // dashboard - our software
@@ -97,7 +92,28 @@ router.get('/contact', ensureAuthenticated, function(req, res) {
 // <==============================================================>
 // <=== POST METHODS ===>
 
-// dashboard results
+// dashboard - feedback
+router.post('/feedback', function(req, res) {
+	var id = req.user.id;
+
+	// Set feedback input variables
+	var rating = req.body.rating;
+	var basic = req.body.basic;
+	//....
+
+	User.update(
+		{"_id" : id},
+		{ $push: { "feedback": { rating : rating, basic : basic } } },
+		function(err, model) {
+	    	if (err) {
+	 	  		console.log(err);
+			}
+		}
+
+	);
+});
+
+// dashboard - home
 router.post('/home', function(req, res) {
 	var ig_username = req.user.ig_username;
 	var ig_password = req.user.ig_password;

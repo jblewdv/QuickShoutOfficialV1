@@ -21,57 +21,36 @@ const bcrypt = require('bcryptjs');
 // <=== user schema ===>
 const UserSchema = new Schema({
 
-	finished_beta_tutorial: {
-		type: Boolean,
-		default: false
+	// Meta Data
+	finishedBetaTutorial: { type: Boolean, default: false },
+	betaFeedback: {
+		created: { type: Date, default: Date.now },
+		starRating: { type: Number, min: 1, max: 5, required: true },
+		errorsOrBugs: { type: String, required: true },
+		favoritesAndNot: { type: String, required: true },
+		futureFeatures: { type: String, required: true },
+		continuedUse: { type: Boolean, required: true },
+		likelyToRecommend: { type: Number, min: 1, max: 3, required: true },
 	},
+	additionalFeedback: [{
+		created: { type: Date, default: Date.now },
+		feedback: { type: String, required: true }
+	}], 
 
-	// PERSONAL USER INFO
-	username: {
-		type: String,
-		required: true,
-		index: true,
-		unique: true,
-	},
-	email: {
-		type: String,
-		required: true,
-		index: true,
-		unique: true
-	},
-	password: {
-		type: String,
-		required: true,
-	},
+	// Personal User Information
+	username: { type: String, required: true, index: true, unique: true },
+	email: { type: String, required: true, index: true, unique: true },
+	password: { type: String, required: true },
 	
-	// INSTAGRAM ACCOUNT INFORMATION
-	ig_username: {
-		type: String,
-		required: true,
-		unique: true,
-		index: true
-	},
-	ig_password: {
-		type: String,
-		required: true
-	},
-	story_price: {
-		type: Number,
-		required: true
-	},
-	fullpost_price: {
-		type: Number,
-		required: true
-	},
-	halfpost_price: {
-		type: Number,
-		required: true
-	},
-	lib_price: {
-		type: Number,
-		required: true,
-		default: 0
-	},
+	// Instagram Account Information
+	ig_username: { type: String, required: true, unique: true, index: true },
+	ig_password: { type: String, required: true },
+	story_price: { type: Number, required: true },
+	fullpost_price: { type: Number, required: true },
+	halfpost_price: { type: Number, required: true },
+	lib_price: { type: Number, required: true, default: 0 },
+
+	// Lead Data
 	leads: [{
 		title: { type: String },
 		ig_id: { type: Number },
