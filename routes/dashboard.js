@@ -42,8 +42,8 @@ router.get('/home', ensureAuthenticated, function(req, res) {
 // dashboard - leads
 router.get('/leads', ensureAuthenticated, function(req, res) {
 	// Data returned into the database after running the function
-	var username = req.user.username;
-	User.find({"username": username}, {"leads": true}, function(err, doc) {
+	var id = req.user.id;
+	User.find({"_id": id}, {"leads": true}, function(err, doc) {
 		if(err) throw err;
 		else {
 			var docs = doc[0].leads;
@@ -112,12 +112,8 @@ router.post('/home', function(req, res) {
 		console.log("Done!");
 		console.log(data);
 
-		var test = User.findOne(
-			{ "_id" : id },
-			{ "ig_username" : true }
-		);
-		console.log(test);
-		
+		var titles = [];
+
 		for (object in data) {
 
 			var title = data[object].title;
@@ -125,18 +121,38 @@ router.post('/home', function(req, res) {
 			var profilePic = data[object].profilePic;
 			var text = data[object].text;
 
-			User.update(
-			    { "_id" : id },
-			    { $push: { "leads": { title: title, ig_id: ig_id, profilePic: profilePic, text: text } } },
-			    function(err, model) {
-			        if (err) {
-			        	console.log(err);
-			        }
-			    }
+			User.findOne(
+				{"_id": id},
+				{"leads": true},
+				function(err, docs) {
+					for (i in docs) {
+						titles.push(docs[i].title);
+					}
+				}
 			);
 
+			
+			// Model the User.find() from above in GET leads
+			/*
+			if ("title is already in DB") {
+				return
+			}
+			else {
+				User.update(
+			    	{ "_id" : id },
+			    	{ $push: { "leads": { title: title, ig_id: ig_id, profilePic: profilePic, text: text } } },
+			    	function(err, model) {
+			        	if (err) {
+			        		console.log(err);
+			        	}
+			    	}
+				);
+			}
+			*/
 		}
-	})
+		console.log(titles);
+
+	});
 
 	req.flash('success', "You have successfully started the software!");
 
