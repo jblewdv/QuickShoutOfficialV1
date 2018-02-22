@@ -128,7 +128,8 @@ router.post('/home', function(req, res) {
 	myFnEventEmitter.on('started', data => {
 		console.log("Done!");
 
-		var recs = [];
+		/*
+		var currentLeadTitles = [];
 
 		User.find({"_id": id}, {"leads": true}, function(err, doc) {
 			if(err) throw err;
@@ -136,30 +137,22 @@ router.post('/home', function(req, res) {
 			else {
 				var docs = doc[0].leads;
 
-				recs.push(docs);
-				console.log(docs);
+				currentLeadTitles.push(docs.title);
 			}
 		});
 
 		for (object in data) {
 
 			var title = data[object].title;
-			var ig_id = data[object].userId;
-			var profilePic = data[object].profilePic;
-			var text = data[object].text;
-			
-			
-		}
 
-		
-
-			
-			// Model the User.find() from above in GET leads
-			/*
-			if ("title is already in DB") {
+			if (currentLeadTitles.includes(title)) {
 				return
 			}
 			else {
+				var ig_id = data[object].userId;
+				var profilePic = data[object].profilePic;
+				var text = data[object].text;
+
 				User.update(
 			    	{ "_id" : id },
 			    	{ $push: { "leads": { title: title, ig_id: ig_id, profilePic: profilePic, text: text } } },
@@ -169,10 +162,9 @@ router.post('/home', function(req, res) {
 			        	}
 			    	}
 				);
-			}
-			*/
-
-
+			}				
+		}
+		*/
 	});
 
 	req.flash('success', "You have successfully started the software!");
