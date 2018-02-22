@@ -45,6 +45,7 @@ router.get('/leads', ensureAuthenticated, function(req, res) {
 	var id = req.user.id;
 	User.find({"_id": id}, {"leads": true}, function(err, doc) {
 		if(err) throw err;
+		
 		else {
 			var docs = doc[0].leads;
 
@@ -121,15 +122,17 @@ router.post('/home', function(req, res) {
 			var profilePic = data[object].profilePic;
 			var text = data[object].text;
 
-			User.findOne(
-				{"_id": id},
-				{"leads": true},
-				function(err, docs) {
-					for (i in docs) {
-						titles.push(docs[i].title);
-					}
+			User.findOne( {"_id": id}, {"leads": true}, function(err, docs) {
+				if(err) throw err;
+				
+				else {
+		
+					console.log(docs);
+					//titles.push(docs[i].title);
+					
 				}
-			);
+			});
+		}
 
 			
 			// Model the User.find() from above in GET leads
