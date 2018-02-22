@@ -129,12 +129,11 @@ router.post('/home', function(req, res) {
 		
 					for (i in docs.leads)
 						//console.log(docs.leads);
-						recs.push(docs.leads[i]);
+						console.log(docs[i].leads);
 					
 				}
 			});
 		}
-		console.log(recs);
 
 			
 			// Model the User.find() from above in GET leads
