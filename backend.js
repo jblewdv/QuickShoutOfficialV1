@@ -34,7 +34,7 @@ module.exports.myFunction = function(ig_username, ig_password, story_price, full
 		Client.Session.create(device, storage, ig_username, ig_password)
 
 			.then(function(session) {
-				Client.Request.setProxy('http://69.160.158.28:8080/'); // update proxy after login
+				//Client.Request.setProxy('http://ip:port/'); // update proxy after login
 			
 				return session
 			})
@@ -105,11 +105,9 @@ module.exports.myFunction = function(ig_username, ig_password, story_price, full
 				myFnEventEmitter.emit('started', promos)
 			})
 			
-			/*
-			.catch(Client.Exceptions.CheckpointError, e => {
-    			Client.Web.Challenge.resolve(e);
-			});
-			*/
+			.catch(Client.Exceptions.CheckpointError, function(e) {
+    			resolve(e);
+			})
 		
 		}, function () {},
 		true
