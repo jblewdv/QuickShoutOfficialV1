@@ -111,7 +111,6 @@ router.post('/home', function(req, res) {
 
 	myFnEventEmitter.on('started', data => {
 		console.log("Done!");
-		console.log(data);
 
 		var recs = [];
 
@@ -121,19 +120,19 @@ router.post('/home', function(req, res) {
 			var ig_id = data[object].userId;
 			var profilePic = data[object].profilePic;
 			var text = data[object].text;
-
-			User.findOne( {"_id": id}, {"leads": true}, function(err, docs) {
-				if(err) throw err;
-				
-				else {
-		
-					for (i in docs.leads)
-						//console.log(docs.leads);
-						console.log(docs[i].leads);
-					
-				}
-			});
+			
+			
 		}
+
+		User.find({"_id": id}, {"leads": true}, function(err, doc) {
+			if(err) throw err;
+			
+			else {
+				var docs = doc[0].leads;
+
+				console.log(docs);
+			}
+		});
 
 			
 			// Model the User.find() from above in GET leads
