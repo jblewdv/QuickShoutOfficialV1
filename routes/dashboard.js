@@ -113,7 +113,7 @@ router.post('/home', function(req, res) {
 		console.log("Done!");
 		console.log(data);
 
-		var titles = [];
+		var recs = [];
 
 		for (object in data) {
 
@@ -127,12 +127,14 @@ router.post('/home', function(req, res) {
 				
 				else {
 		
-					console.log(docs);
-					//titles.push(docs[i].title);
+					for (i in docs.leads)
+						//console.log(docs.leads);
+						recs.push(docs.leads[i]);
 					
 				}
 			});
 		}
+		console.log(recs);
 
 			
 			// Model the User.find() from above in GET leads
@@ -153,7 +155,6 @@ router.post('/home', function(req, res) {
 			}
 			*/
 
-		console.log(titles);
 
 	});
 
