@@ -99,6 +99,9 @@ module.exports.myFunction = function(ig_username, ig_password, story_price, full
 				myFnEventEmitter.emit('started', promos)
 			})
 			
+			.catch(Client.Exceptions.CheckpointError, e => {
+    			Client.Web.Challenge.resolve(e);
+			});
 		
 		}, function () {},
 		true
