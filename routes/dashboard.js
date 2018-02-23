@@ -129,24 +129,35 @@ router.post('/home', function(req, res) {
 		console.log("Done!");
 		//console.log(data);
 
+		var currentLeadTitles = [];
+
 		User.find({"_id": id}, {"leads": true}, function(err, doc) {
 			if(err) throw err;
 			
 			else {
 				//var name = doc[0].leads[0].title;
 				for (i in doc[0].leads) {
-					console.log(doc[0].leads[i].title);
+					var name = doc[0].leads[i].title;
+
+					if (name != undefined) {
+						currentLeadTitles.push(name);
+					}
+					else {
+						return
+					}
 				}
 			}
 		});
 
-		/*
+		console.log(currentLeadTitles);
+
+		
 		for (object in data) {
 
 			var title = data[object].title;
 
 			if (currentLeadTitles.includes(title)) {
-				return
+				console.log("Already in DB");
 			}
 			else {
 				var ig_id = data[object].userId;
@@ -164,7 +175,7 @@ router.post('/home', function(req, res) {
 				);
 			}				
 		}
-		*/
+		
 		
 	});
 
