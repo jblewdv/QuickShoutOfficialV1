@@ -35,7 +35,7 @@ module.exports.myFunction = function(ig_username, ig_password, story_price, full
 
 			.then(function(session) {
 				// Can be set to 'Inbox' or 'InboxPending'
-				var feed = new Client.Feed.InboxPending(session);
+				var feed = new Client.Feed.Inbox(session);
 
 				return [session, feed.get()]
 			})
