@@ -57,8 +57,8 @@ http.get(options, function(res) {
 
 // <==============================================================>
 // <=== Database Connection ===>
-//mongoose.connect('mongodb://washingtonirving:yossarian@ds243728.mlab.com:43728/heroku_4x6549sc');
-mongoose.connect('mongodb://localhost/tester');
+mongoose.connect('mongodb://washingtonirving:yossarian@ds243728.mlab.com:43728/heroku_4x6549sc');
+//mongoose.connect('mongodb://localhost/tester');
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
