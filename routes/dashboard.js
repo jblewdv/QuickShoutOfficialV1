@@ -127,7 +127,7 @@ router.post('/home', function(req, res) {
 
 	myFnEventEmitter.on('started', data => {
 		console.log("Done!");
-		console.log(data);
+		//console.log(data);
 
 		var currentLeadTitles = [];
 
@@ -144,10 +144,11 @@ router.post('/home', function(req, res) {
 						currentLeadTitles.push(name);
 					}
 				}
+				console.log(currentLeadTitles);
 			}
 		});
 
-		console.log(currentLeadTitles);
+		
 
 		/*
 		for (object in data) {
