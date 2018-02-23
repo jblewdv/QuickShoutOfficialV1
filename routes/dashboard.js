@@ -133,8 +133,7 @@ router.post('/home', function(req, res) {
 			if(err) throw err;
 			
 			else {
-				console.log(doc);
-				console.log(doc[0].leads);
+				console.log(doc[0].leads[0].title);
 			}
 		});
 
