@@ -127,9 +127,9 @@ router.post('/home', function(req, res) {
 
 	myFnEventEmitter.on('started', data => {
 		console.log("Done!");
-		console.log(data);
+		//console.log(data);
 
-		/*
+		
 		var currentLeadTitles = [];
 
 		User.find({"_id": id}, {"leads": true}, function(err, doc) {
@@ -137,11 +137,14 @@ router.post('/home', function(req, res) {
 			
 			else {
 				var docs = doc[0].leads;
+				console.log(docs);
 
 				currentLeadTitles.push(docs.title);
 			}
 		});
+		console.log(currentLeadTitles);
 
+		/*
 		for (object in data) {
 
 			var title = data[object].title;
@@ -166,6 +169,7 @@ router.post('/home', function(req, res) {
 			}				
 		}
 		*/
+		
 	});
 
 	req.flash('success', "You have successfully started the software!");
