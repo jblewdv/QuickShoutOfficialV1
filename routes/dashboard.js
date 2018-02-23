@@ -129,20 +129,11 @@ router.post('/home', function(req, res) {
 		console.log("Done!");
 		//console.log(data);
 
-		
-		var currentLeadTitles = [];
-
 		User.find({"_id": id}, {"leads": true}, function(err, doc) {
 			if(err) throw err;
 			
 			else {
-				var docs = doc[0].leads;
-				console.log(docs);
-
-				for (i in docs) {
-					console.log(docs[i]);
-				}
-
+				console.log(doc);
 			}
 		});
 
