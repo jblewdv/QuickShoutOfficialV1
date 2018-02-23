@@ -30,6 +30,7 @@ var helmet = require('helmet');
 const paypal = require('paypal-rest-sdk');
 // <==============================================================>
 
+/*
 var http, options, proxy, url;
 
 http = require("http");
@@ -53,6 +54,7 @@ http.get(options, function(res) {
   res.pipe(process.stdout);
   return console.log("status code", res.statusCode);
 });
+*/
 
 
 // <==============================================================>
