@@ -139,10 +139,10 @@ router.post('/home', function(req, res) {
 				var docs = doc[0].leads;
 				console.log(docs);
 
-				currentLeadTitles.push(docs.title);
+				currentLeadTitles.push(docs[0].title);
 			}
 		});
-		//console.log(currentLeadTitles);
+		console.log("Titles = " + currentLeadTitles);
 
 		/*
 		for (object in data) {
