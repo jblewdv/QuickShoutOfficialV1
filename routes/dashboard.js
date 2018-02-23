@@ -133,7 +133,10 @@ router.post('/home', function(req, res) {
 			if(err) throw err;
 			
 			else {
-				console.log(doc[0].leads[0].title);
+				//var name = doc[0].leads[0].title;
+				for (i in doc[0].leads) {
+					console.log(doc[0].leads[i].title);
+				}
 			}
 		});
 
