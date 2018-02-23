@@ -129,13 +129,12 @@ router.post('/home', function(req, res) {
 		console.log("Done!");
 		//console.log(data);
 
-		var currentLeadTitles = [];
-
 		User.find({"_id": id}, {"leads": true}, function(err, doc) {
 			if(err) throw err;
 			
 			else {
-				//var name = doc[0].leads[0].title;
+				var currentLeadTitles = [];
+				
 				for (i in doc[0].leads) {
 					var name = doc[0].leads[i].title;
 
@@ -144,11 +143,14 @@ router.post('/home', function(req, res) {
 						currentLeadTitles.push(name);
 					}
 				}
-				console.log(currentLeadTitles);
-			}
-		});
 
-		
+				return currentLeadTitles;
+			}
+		})
+
+		.then(function(currentLeads) {
+			console.log(currentLeads);
+		})
 
 		/*
 		for (object in data) {
