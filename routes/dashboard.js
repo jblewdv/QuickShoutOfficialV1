@@ -142,7 +142,7 @@ router.post('/home', function(req, res) {
 				currentLeadTitles.push(docs.title);
 			}
 		});
-		console.log(currentLeadTitles);
+		//console.log(currentLeadTitles);
 
 		/*
 		for (object in data) {
