@@ -142,16 +142,13 @@ router.post('/home', function(req, res) {
 					if (name != undefined) {
 						currentLeadTitles.push(name);
 					}
-					else {
-						return
-					}
 				}
 			}
 		});
 
 		console.log(currentLeadTitles);
 
-		
+		/*
 		for (object in data) {
 
 			var title = data[object].title;
@@ -175,6 +172,7 @@ router.post('/home', function(req, res) {
 				);
 			}				
 		}
+		*/
 		
 		
 	});
