@@ -126,8 +126,7 @@ router.post('/home', function(req, res) {
 	const myFnEventEmitter = Tester.myFunction(ig_username, ig_password, story_price, fullpost_price, halfpost_price, lib_price);
 
 	myFnEventEmitter.on('started', data => {
-		console.log("Done!");
-		//console.log(data);
+		console.log("Instagram data gatherd.....starting filtering process.");
 
 		User.find({"_id": id}, {"leads": true}, function(err, doc) {
 			if(err) throw err;
@@ -139,52 +138,39 @@ router.post('/home', function(req, res) {
 					var name = doc[0].leads[i].title;
 
 					if (name != undefined) {
-						// This is not pushing to array, OR the async nature is printing the bottom console.log first while it's empty before .update can push it.
 						currentLeadTitles.push(name);
 					}
 				}
-
-				console.log(currentLeadTitles);
 
 				for (i in data) {
 					var title = data[i].title;
 
 					if (currentLeadTitles.includes(title)) {
-						console.log("Already in Database.");
+						console.log("Already in database.");
 					}
 					else {
 						console.log("Ready to be added to Leads.");
+
+						var ig_id = data[object].userId;
+						var profilePic = data[object].profilePic;
+						var text = data[object].text;
+
+						User.update(
+			    			{ "_id" : id },
+			    			{ $push: { "leads": { title: title, ig_id: ig_id, profilePic: profilePic, text: text } } },
+			    			function(err, model) {
+			        			if (err) {
+			        				console.log(err);
+			        			}
+			        			else {
+			        				console.log("Lead added successfully.");
+			        			}
+			    			}
+						);
 					}
 				}
 			}
-		})
-		/*
-		for (object in data) {
-
-			var title = data[object].title;
-
-			if (currentLeadTitles.includes(title)) {
-				console.log("Already in DB");
-			}
-			else {
-				var ig_id = data[object].userId;
-				var profilePic = data[object].profilePic;
-				var text = data[object].text;
-
-				User.update(
-			    	{ "_id" : id },
-			    	{ $push: { "leads": { title: title, ig_id: ig_id, profilePic: profilePic, text: text } } },
-			    	function(err, model) {
-			        	if (err) {
-			        		console.log(err);
-			        	}
-			    	}
-				);
-			}				
-		}
-		*/
-		
-		
+		})		
 	});
 
 	req.flash('success', "You have successfully started the software!");
