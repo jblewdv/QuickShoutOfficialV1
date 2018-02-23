@@ -134,7 +134,7 @@ router.post('/home', function(req, res) {
 			
 			else {
 				console.log(doc);
-				consol.log(doc[0].leads);
+				console.log(doc[0].leads);
 			}
 		});
 
