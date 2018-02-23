@@ -25,12 +25,12 @@ const UserSchema = new Schema({
 	finishedBetaTutorial: { type: Boolean, default: false },
 	betaFeedback: {
 		created: { type: Date, default: Date.now },
-		starRating: { type: Number, min: 1, max: 5, required: true },
-		errorsOrBugs: { type: String, required: true },
-		favoritesAndNot: { type: String, required: true },
-		futureFeatures: { type: String, required: true },
-		continuedUse: { type: Boolean, required: true },
-		likelyToRecommend: { type: Number, min: 1, max: 3, required: true },
+		starRating: { type: Number, min: 1, max: 5 },
+		errorsOrBugs: { type: String },
+		favoritesAndNot: { type: String },
+		futureFeatures: { type: String },
+		continuedUse: { type: Boolean },
+		likelyToRecommend: { type: Number, min: 1, max: 3 },
 	},
 	additionalFeedback: [{
 		created: { type: Date, default: Date.now },

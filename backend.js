@@ -31,13 +31,7 @@ module.exports.myFunction = function(ig_username, ig_password, story_price, full
 	// Executes job everyday @ 12:00pm
 	var job = new CronJob('00 * * * * 0-6', function() {
 		
-		Client.Session.create(device, storage, ig_username, ig_password)
-
-			.then(function(session) {
-				//Client.Request.setProxy('http://ip:port/'); // update proxy after login
-			
-				return session
-			})
+		Client.Session.create(device, storage, ig_username, ig_password, 'http://amahn3430qwxi4:Nu3-hVNcr29jBlagA5fhJYPAmQ@us-east-static-04.quotaguard.com:9293')
 
 			.then(function(session) {
 				// Can be set to 'Inbox' or 'InboxPending'

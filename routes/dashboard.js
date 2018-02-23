@@ -127,6 +127,7 @@ router.post('/home', function(req, res) {
 
 	myFnEventEmitter.on('started', data => {
 		console.log("Done!");
+		console.log(data);
 
 		/*
 		var currentLeadTitles = [];

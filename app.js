@@ -30,12 +30,35 @@ var helmet = require('helmet');
 const paypal = require('paypal-rest-sdk');
 // <==============================================================>
 
+var http, options, proxy, url;
+
+http = require("http");
+
+url = require("url");
+
+proxy = url.parse(process.env.QUOTAGUARDSTATIC_URL);
+target  = url.parse("http://ip.jsontest.com/");
+
+options = {
+  hostname: proxy.hostname,
+  port: proxy.port || 80,
+  path: target.href,
+  headers: {
+    "Proxy-Authorization": "Basic " + (new Buffer(proxy.auth).toString("base64")),
+    "Host" : target.hostname
+  }
+};
+
+http.get(options, function(res) {
+  res.pipe(process.stdout);
+  return console.log("status code", res.statusCode);
+});
+
 
 // <==============================================================>
 // <=== Database Connection ===>
-//mongodb://localhost/tester
-mongoose.connect('mongodb://washingtonirving:yossarian@ds243728.mlab.com:43728/heroku_4x6549sc');
-//mongoose.connect('mongodb://localhost/tester');
+//mongoose.connect('mongodb://washingtonirving:yossarian@ds243728.mlab.com:43728/heroku_4x6549sc');
+mongoose.connect('mongodb://localhost/tester');
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
