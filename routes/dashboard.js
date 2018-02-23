@@ -134,7 +134,7 @@ router.post('/home', function(req, res) {
 			
 			else {
 				var currentLeadTitles = [];
-				
+
 				for (i in doc[0].leads) {
 					var name = doc[0].leads[i].title;
 
@@ -144,14 +144,13 @@ router.post('/home', function(req, res) {
 					}
 				}
 
-				return currentLeadTitles;
+				console.log(currentLeadTitles);
+
+				for (i in data) {
+					console.log(data[i]);
+				}
 			}
 		})
-
-		.then(function(currentLeads) {
-			console.log(currentLeads);
-		})
-
 		/*
 		for (object in data) {
 
