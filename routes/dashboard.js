@@ -127,7 +127,7 @@ router.post('/home', function(req, res) {
 
 	myFnEventEmitter.on('started', data => {
 		console.log("Done!");
-		//console.log(data);
+		console.log(data);
 
 		var currentLeadTitles = [];
 
@@ -140,6 +140,7 @@ router.post('/home', function(req, res) {
 					var name = doc[0].leads[i].title;
 
 					if (name != undefined) {
+						// This is not pushing to array, OR the async nature is printing the bottom console.log first while it's empty before .update can push it.
 						currentLeadTitles.push(name);
 					}
 				}
