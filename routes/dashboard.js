@@ -147,7 +147,14 @@ router.post('/home', function(req, res) {
 				console.log(currentLeadTitles);
 
 				for (i in data) {
-					console.log(data[i]);
+					var title = data[i].title;
+
+					if (currentLeadTitles.includes(title)) {
+						console.log("Already in Database.");
+					}
+					else {
+						console.log("Ready to be added to Leads.");
+					}
 				}
 			}
 		})
